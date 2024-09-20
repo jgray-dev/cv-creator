@@ -50,7 +50,7 @@ export default function Index() {
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     if (!userInfo.trim() || !jobListing.trim()) {
       event.preventDefault();
-      alert('Please fill in both the Current Cover Letter and Job Listing fields.');
+      alert('Please fill in both the User Information and Job Listing fields.');
     }
   };
 
@@ -59,12 +59,12 @@ export default function Index() {
       <Form method="post" className="flex flex-col w-full md:w-1/2 p-4" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="userInfo" className="block text-sm font-medium text-gray-300 mb-2">
-            Current Cover Letter
+            User Information (qualifications, skills, experience)
           </label>
           <textarea
             id="userInfo"
             name="userInfo"
-            placeholder="Enter your current cover letter here"
+            placeholder="Enter your qualifications, skills, and experience here."
             className="w-full h-64 p-2 border rounded-md bg-gray-800 text-gray-100 border-gray-700 placeholder-gray-500"
             value={userInfo}
             onChange={(e) => setUserInfo(e.target.value)}
@@ -96,7 +96,7 @@ export default function Index() {
       <div className="w-full md:w-1/2 p-4 bg-gray-800 overflow-auto">
         <h2 className="text-xl font-bold mb-4 text-gray-100">LLM Output</h2>
         {isSubmitting ? (
-          <div className="text-gray-300">Waiting for response...</div>
+          <div className="text-gray-500">Waiting for response...</div>
         ) : actionData?.fullResponse ? (
           <div className="whitespace-pre-wrap text-gray-300">
             {actionData.fullResponse}
